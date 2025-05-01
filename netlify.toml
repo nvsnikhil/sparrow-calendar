@@ -1,8 +1,8 @@
 [build]
-  base = "apps/experiment-06"  # Targets your app directory
-  publish = ".next/standalone/apps/experiment-06"  # Exact output path
+  base = "apps/experiment-06"
+  publish = ".next/standalone/apps/experiment-06"
   command = "pnpm build"
-  environment = { NODE_VERSION = "18.x" }  # Ensures Node 18+
+  environment = { NODE_VERSION = "18.17.1" }  # Changed to exact version
 
 [[redirects]]
   from = "/_next/static/*"
