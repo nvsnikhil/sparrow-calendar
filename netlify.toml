@@ -1,7 +1,8 @@
 [build]
-  base = "apps/experiment-06"
-  publish = ".next/standalone"  # Now correctly relative to base directory
-  command = "pnpm build"       # No need for cd command anymore
+  base = "apps/experiment-06"  # Targets your app directory
+  publish = ".next/standalone/apps/experiment-06"  # Exact output path
+  command = "pnpm build"
+  environment = { NODE_VERSION = "18.x" }  # Ensures Node 18+
 
 [[redirects]]
   from = "/_next/static/*"
