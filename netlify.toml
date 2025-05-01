@@ -1,7 +1,7 @@
 [build]
   base = "apps/experiment-06"
-  publish = "apps/experiment-06/.next/standalone"  # Full path required
-  command = "cd apps/experiment-06 && pnpm build"  # Build from subdirectory
+  publish = ".next/standalone"  # Now correctly relative to base directory
+  command = "pnpm build"       # No need for cd command anymore
 
 [[redirects]]
   from = "/_next/static/*"
