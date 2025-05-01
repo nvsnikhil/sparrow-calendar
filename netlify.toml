@@ -1,7 +1,13 @@
 [build]
-  command = "pnpm build"
-  publish = ".next/standalone"
-  functions = ".next/serverless"
+  base = "apps/experiment-06"
+  publish = "apps/experiment-06/.next/standalone"  # Full path required
+  command = "cd apps/experiment-06 && pnpm build"  # Build from subdirectory
+
+[[redirects]]
+  from = "/_next/static/*"
+  to = "/_next/static/:splat"
+  status = 200
+  force = true
 
 [[redirects]]
   from = "/*"
