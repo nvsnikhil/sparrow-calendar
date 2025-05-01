@@ -1,11 +1,21 @@
-[build.environment]
-  NODE_VERSION = "18.18.2"
-  
 [build]
   base = "apps/experiment-06"
-  publish = ".next/standalone/apps/experiment-06"
-  command = "pnpm build"
-  environment = { NODE_VERSION = "18.17.1" }  # Changed to exact version
+  publish = "apps/experiment-06/.next/standalone/apps/experiment-06"
+  command = "cd apps/experiment-06 && pnpm install && pnpm build"
+  environment = { 
+    NODE_VERSION = "18.17.1",
+    NPM_FLAGS = "--force"  # Helps resolve potential dependency issues
+  }
+
+[context.production.environment]
+  NEXT_PUBLIC_APP_ENV = "production"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
 
 [[redirects]]
   from = "/_next/static/*"
